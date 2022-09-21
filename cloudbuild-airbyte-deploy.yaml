@@ -6,8 +6,8 @@ steps:
     - '-e'
     - '-c'
     - |
-     gcloud container clusters get-credentials staging-cluster --region southamerica-east1 --project htk-kubernetes-stg
-     git clone https://github.com/haytek-project/airbyte.git --depth=3
+     gcloud container clusters get-credentials teste-implementacao-haytek --region us-central1 --project haytek-ondemand
+     git clone https://github.com/cog-bruno-faustino/airbyte.git --depth=3
      cd airbyte
      kubectl apply -k kube/overlays/stable
      kubectl get pods
