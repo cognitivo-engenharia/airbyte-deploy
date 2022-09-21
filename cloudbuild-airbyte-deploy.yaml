@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: Set Env & Secrets
+    entrypoint: bash
+    args:
+    - '-e'
+    - '-c'
+    - |
+     gcloud container clusters get-credentials staging-cluster --region southamerica-east1 --project htk-kubernetes-stg
+     git clone https://github.com/haytek-project/airbyte.git --depth=3
+     cd airbyte
+     kubectl apply -k kube/overlays/stable
+     kubectl get pods
